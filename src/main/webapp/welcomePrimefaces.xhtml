@@ -13,7 +13,8 @@
             </f:facet>
         </h:head>
 
-        <h:body>
+        <h:body>                    
+
 
             <p:layout fullPage="true">
 
@@ -23,6 +24,8 @@
 
                 <p:layoutUnit position="south" size="100" closable="true" collapsible="true">
                     SoftUnbosque
+                    
+                    
                 </p:layoutUnit>
 
                 <p:layoutUnit position="west" size="175" header="Left" collapsible="true">
@@ -39,13 +42,35 @@
                 </p:layoutUnit>
 
                 <p:layoutUnit position="center">
-                    <h:form id="f_paciente">
+                    
+                <h:form id="f_paciente">
 
                 <p:accordionPanel id="socio_demo"  >
 
                     <p:tab id="seccion_p" title="Paciente">
-                        <h:panelGrid columns="3" cellpadding="10">
+                         <p:dataTable var="paciente" value="#{vistaPaciente.paciente}">  
+                                <p:column headerText="Nombre">  
+                                    <h:outputText value="#{paciente.nombre}" />  
+                                </p:column>  
+                                <p:column headerText="Apellidos">  
+                                    <h:outputText value="#{paciente.apellidos}" />  
 
+                                </p:column> 
+                                <p:column headerText="Sexo">  
+                                    <h:outputText value="#{paciente.fenotipoSexual}" />
+                                </p:column> 
+                                <p:column headerText="Raza">  
+                                    <h:outputText value="#{paciente.caracteristicaFenotipica}" />
+                                </p:column> 
+                                <p:column headerText="edad">  
+                                    <h:outputText value="#{paciente.edad}" />  
+                                </p:column> 
+                             
+                         </p:dataTable>
+
+                        <h:panelGrid columns="3" cellpadding="10">
+                            <!-- Profe esta tabla  la hice solo para consultar momentaneamente  a la base de datos-->
+                           
                                    
                             <h:outputLabel>Nombre:</h:outputLabel>
                             <p:inputText id="p_nombre" value="#{paciente.nombre}"  />
@@ -63,7 +88,7 @@
                              <h:selectOneMenu id="p_raza" value="#{paciente.caracteristicaFenotipica}" >
                                  <f:selectItems value="#{caracteristicaFenotipica.razas}" />
                             </h:selectOneMenu>
-                            <h:outputLabel/>                     
+                            <h:outputLabel/>           
                                                          
 
                             <p:outputLabel for="p_nacimiento" value="Fecha Nacimiento:" />
@@ -94,13 +119,9 @@
                 <p:tab id="seccion_p3" title="Pacientes Creados">
                     <h:panelGrid columns="2" cellpadding="10">
                         
-                               
-                            <h:outputLabel>Nombre:</h:outputLabel>
-                            <p:inputText id="p_nombre" value="#{paciente.nombre}"  />
-                            <h:outputLabel/>
-
-
                     </h:panelGrid>
+                    
+                    
                 </p:tab>    
                     
 
