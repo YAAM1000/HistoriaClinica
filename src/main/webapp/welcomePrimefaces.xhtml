@@ -48,6 +48,7 @@
                 <p:accordionPanel id="socio_demo"  >
 
                     <p:tab id="seccion_p" title="Paciente">
+                         <!-- Profe esta tabla  la hice solo para consultar momentaneamente  a la base de datos-->
                          <p:dataTable var="paciente" value="#{vistaPaciente.paciente}">  
                                 <p:column headerText="Nombre">  
                                     <h:outputText value="#{paciente.nombre}" />  
@@ -69,7 +70,7 @@
                          </p:dataTable>
 
                         <h:panelGrid columns="3" cellpadding="10">
-                            <!-- Profe esta tabla  la hice solo para consultar momentaneamente  a la base de datos-->
+                           
                            
                                    
                             <h:outputLabel>Nombre:</h:outputLabel>
@@ -106,7 +107,13 @@
 
                         <h:outputLabel>Días de Nacido</h:outputLabel>
                         <p:inputText id="p_dias" value="#{paciente.dias}"  />
-                        <p:commandButton  id="p_guardar"  actionListener="#{vistaPaciente.cambioTab}"  value="Guardar"  />
+                        
+                        <!-- <h:outputLabel>Edad</h:outputLabel>
+                        <p:inputText id="p_edad" value="#{paciente.edad}"  />-->
+                                               
+                     
+                         <p:commandButton  id="p_guardar"  action="#{vistaPaciente.cambioTab}" onclick="window.location.reload()"  value="Guardar"  />
+                        
 
                     </h:panelGrid>
                 </p:tab>
