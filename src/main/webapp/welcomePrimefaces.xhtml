@@ -63,8 +63,7 @@
                              <h:selectOneMenu id="p_raza" value="#{paciente.caracteristicaFenotipica}" >
                                  <f:selectItems value="#{caracteristicaFenotipica.razas}" />
                             </h:selectOneMenu>
-                            <h:outputLabel/>
-                                                                          
+                            <h:outputLabel/>                     
                                                          
 
                             <p:outputLabel for="p_nacimiento" value="Fecha Nacimiento:" />
@@ -82,7 +81,7 @@
 
                         <h:outputLabel>Días de Nacido</h:outputLabel>
                         <p:inputText id="p_dias" value="#{paciente.dias}"  />
-                        <p:commandButton  id="p_guardar"  actionListener="#{vistaPaciente.setPaciente(paciente)}"  value="Guardar"  />
+                        <p:commandButton  id="p_guardar"  actionListener="#{vistaPaciente.cambioTab}"  value="Guardar"  />
 
                     </h:panelGrid>
                 </p:tab>
