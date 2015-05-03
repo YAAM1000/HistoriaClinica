@@ -59,6 +59,11 @@
                                 <f:selectItems value="#{fenotipoSexual.sexos}" />
                             </h:selectOneMenu>
                             <h:outputLabel/>
+                             <h:outputLabel>Raza</h:outputLabel>
+                             <h:selectOneMenu id="p_raza" value="#{paciente.caracteristicaFenotipica}" >
+                                 <f:selectItems value="#{caracteristicaFenotipica.razas}" />
+                            </h:selectOneMenu>
+                            <h:outputLabel/>
                                                                           
                                                          
 
