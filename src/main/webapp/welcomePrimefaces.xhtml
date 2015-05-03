@@ -18,11 +18,11 @@
             <p:layout fullPage="true">
 
                 <p:layoutUnit position="north" size="100" resizable="true" closable="true" collapsible="true">
-                    Header
+                    Hurgencias medicas
                 </p:layoutUnit>
 
                 <p:layoutUnit position="south" size="100" closable="true" collapsible="true">
-                    Footer
+                    SoftUnbosque
                 </p:layoutUnit>
 
                 <p:layoutUnit position="west" size="175" header="Left" collapsible="true">
@@ -91,6 +91,18 @@
 
                     </h:panelGrid>
                 </p:tab>
+                <p:tab id="seccion_p3" title="Pacientes Creados">
+                    <h:panelGrid columns="2" cellpadding="10">
+                        
+                               
+                            <h:outputLabel>Nombre:</h:outputLabel>
+                            <p:inputText id="p_nombre" value="#{paciente.nombre}"  />
+                            <h:outputLabel/>
+
+
+                    </h:panelGrid>
+                </p:tab>    
+                    
 
                 <p:ajax event="tabChange"  listener="#{vistaPaciente.cambioTab}"  />
                 <p:ajax event="tabClose" listener="#{vistaPaciente.cerroTab}"  />
