@@ -9,6 +9,7 @@ import java.io.Serializable;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import co.edu.uelbosque.sistemas.swiii.c3.historiaclinica.entities.Paciente;
+import co.edu.uelbosque.sistemas.swiii.c3.historiaclinica.entities.Raza;
 import co.edu.uelbosque.sistemas.swiii.c3.historiaclinica.services.ServicioPacienteInt;
 import co.edu.uelbosque.sistemas.swiii.c3.historiaclinica.services.ServiciosDeAplicacionSpring;
 import java.util.Date;
@@ -41,7 +42,7 @@ public class VistaPaciente implements Serializable {
     }
 
     private void salvarPaciente() {
-
+     
         sp.getRp().save(paciente);
     }
 

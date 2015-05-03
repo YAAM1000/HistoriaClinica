@@ -46,7 +46,7 @@
                     <p:tab id="seccion_p" title="Paciente">
                         <h:panelGrid columns="3" cellpadding="10">
 
-
+                                   
                             <h:outputLabel>Nombre:</h:outputLabel>
                             <p:inputText id="p_nombre" value="#{paciente.nombre}"  />
                             <h:outputLabel/>
@@ -59,6 +59,8 @@
                                 <f:selectItems value="#{fenotipoSexual.sexos}" />
                             </h:selectOneMenu>
                             <h:outputLabel/>
+                                                                          
+                                                         
 
                             <p:outputLabel for="p_nacimiento" value="Fecha Nacimiento:" />
 
@@ -75,6 +77,7 @@
 
                         <h:outputLabel>Días de Nacido</h:outputLabel>
                         <p:inputText id="p_dias" value="#{paciente.dias}"  />
+                        <p:commandButton  id="p_guardar"  actionListener="#{vistaPaciente.setPaciente(paciente)}"  value="Guardar"  />
 
                     </h:panelGrid>
                 </p:tab>
