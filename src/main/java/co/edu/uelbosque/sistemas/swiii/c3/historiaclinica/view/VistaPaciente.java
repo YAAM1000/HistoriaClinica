@@ -7,31 +7,30 @@ package co.edu.uelbosque.sistemas.swiii.c3.historiaclinica.view;
 
 import java.io.Serializable;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ManagedProperty;
-import co.edu.uelbosque.sistemas.swiii.c3.historiaclinica.entities.Paciente;
-import co.edu.uelbosque.sistemas.swiii.c3.historiaclinica.entities.Raza;
-import co.edu.uelbosque.sistemas.swiii.c3.historiaclinica.services.ServicioPacienteInt;
-import co.edu.uelbosque.sistemas.swiii.c3.historiaclinica.services.ServiciosDeAplicacionSpring;
-import java.util.Date;
-import javax.annotation.PostConstruct;
-import javax.faces.bean.SessionScoped;
-import javax.faces.event.AjaxBehaviorEvent;
-import org.primefaces.component.calendar.Calendar;
-import org.primefaces.event.TabChangeEvent;
-import org.primefaces.event.TabCloseEvent;
+    import javax.faces.bean.ManagedProperty;
+    import co.edu.uelbosque.sistemas.swiii.c3.historiaclinica.entities.Paciente;
+    import co.edu.uelbosque.sistemas.swiii.c3.historiaclinica.entities.Raza;
+    import co.edu.uelbosque.sistemas.swiii.c3.historiaclinica.services.ServicioPacienteInt;
+    import co.edu.uelbosque.sistemas.swiii.c3.historiaclinica.services.ServiciosDeAplicacionSpring;
+    import java.util.Date;
+    import javax.annotation.PostConstruct;
+    import javax.faces.bean.SessionScoped;
+    import javax.faces.event.AjaxBehaviorEvent;
+    import org.primefaces.component.calendar.Calendar;
+    import org.primefaces.event.TabChangeEvent;
+    import org.primefaces.event.TabCloseEvent;
+    /**
+     *
+     * @author Alejandro
+     */
+    @ManagedBean
+    @SessionScoped
+    public class VistaPaciente implements Serializable {
 
-/**
- *
- * @author Alejandro
- */
-@ManagedBean
-@SessionScoped
-public class VistaPaciente implements Serializable {
+        @ManagedProperty(value = "#{paciente}")
+        private Paciente paciente;
 
-    @ManagedProperty(value = "#{paciente}")
-    private Paciente paciente;
-
-    private transient ServicioPacienteInt sp;
+        private transient ServicioPacienteInt sp;
 
     public void cambioTab(TabChangeEvent event) {
         salvarPaciente();

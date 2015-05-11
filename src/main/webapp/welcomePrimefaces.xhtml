@@ -49,29 +49,9 @@
 
                     <p:tab id="seccion_p" title="Paciente">
                          <!-- Profe esta tabla  la hice solo para consultar momentaneamente  a la base de datos-->
-                         <p:dataTable var="paciente" value="#{vistaPaciente.paciente}">  
-                                <p:column headerText="Nombre">  
-                                    <h:outputText value="#{paciente.nombre}" />  
-                                </p:column>  
-                                <p:column headerText="Apellidos">  
-                                    <h:outputText value="#{paciente.apellidos}" />  
-
-                                </p:column> 
-                                <p:column headerText="Sexo">  
-                                    <h:outputText value="#{paciente.fenotipoSexual}" />
-                                </p:column> 
-                                <p:column headerText="Raza">  
-                                    <h:outputText value="#{paciente.caracteristicaFenotipica}" />
-                                </p:column> 
-                                <p:column headerText="edad">  
-                                    <h:outputText value="#{paciente.edad}" />  
-                                </p:column> 
-                             
-                         </p:dataTable>
-
+                       
                         <h:panelGrid columns="3" cellpadding="10">
-                           
-                           
+                                                  
                                    
                             <h:outputLabel>Nombre:</h:outputLabel>
                             <p:inputText id="p_nombre" value="#{paciente.nombre}"  />
@@ -94,7 +74,7 @@
 
                             <p:outputLabel for="p_nacimiento" value="Fecha Nacimiento:" />
 
-                            <p:calendar id="p_nacimiento"  immediate="true"  value="#{paciente.fechaNacimiento}" pattern="dd/MM/yyyy" mask="true" >
+                            <p:calendar id="p_nacimiento"  immediate="true"  value="#{paciente.fechaNacimiento}" pattern="dd/MM/yyyy" mask="true" navigator="true">
                                 <p:ajax event="dateSelect" process="@this"
                                         listener="#{vistaPaciente.actualizarFechaNacimiento}" update="@(#f_paciente)" />
                                
@@ -107,37 +87,48 @@
 
                         <h:outputLabel>Días de Nacido</h:outputLabel>
                         <p:inputText id="p_dias" value="#{paciente.dias}"  />
-                        
+                        <h:outputLabel/>
                         <h:outputLabel>Edad</h:outputLabel>
                         <p:inputText id="p_edad" value="#{paciente.edad}"  />
-                                               
+                                             
                      
-                         <p:commandButton  id="p_guardar"  action="#{vistaPaciente.cambioTab}" onclick="window.location.reload()"  value="Guardar"  />
-                        
-
+                        <p:commandButton  id="p_guardar"  actionListener="#{vistaPaciente.cambioTab}" onclick="window.location.reload()"  value="Guardar"  />
+                                             
                     </h:panelGrid>
                 </p:tab>
                 <p:tab id="seccion_p2" title="Diagnóstico">
-                    <h:panelGrid columns="2" cellpadding="10">
+                    <h:panelGrid columns="3" cellpadding="10">
+                          <p:dataTable var="paciente" value="#{vistaPaciente.paciente}">  
+                                <p:column headerText="Nombre">  
+                                    <h:outputText value="#{paciente.nombre}" />  
+                                </p:column>  
+                                <p:column headerText="Apellidos">  
+                                    <h:outputText value="#{paciente.apellidos}" />  
+
+                                </p:column> 
+                                <p:column headerText="Sexo">  
+                                    <h:outputText value="#{paciente.fenotipoSexual}" />
+                                </p:column> 
+                                <p:column headerText="Raza">  
+                                    <h:outputText value="#{paciente.caracteristicaFenotipica}" />
+                                </p:column> 
+                                <p:column headerText="edad">  
+                                    <h:outputText value="#{paciente.edad}" />  
+                                </p:column> 
+                             
+                         </p:dataTable>
 
 
                     </h:panelGrid>
                 </p:tab>
-                <p:tab id="seccion_p3" title="Pacientes Creados">
-                    <h:panelGrid columns="2" cellpadding="10">
-                        
-                    </h:panelGrid>
-                    
-                    
-                </p:tab>    
+               
                     
 
-                <p:ajax event="tabChange"  listener="#{vistaPaciente.cambioTab}"  />
+                <p:ajax event="tabChange" partialSubmit="true" listener="#{vistaPaciente.cambioTab}"  />
                 <p:ajax event="tabClose" listener="#{vistaPaciente.cerroTab}"  />
-                <p:ajax event="tabChange"  
-                        partialSubmit="true" process="seccion_p,seccion_p2"/>
-                <p:ajax event="tabClose"  
-                        partialSubmit="true" process="seccion_p,seccion_p2"/>
+            
+<!--                <p:ajax event="tabChange" partialSubmit="true" process="seccion_p,seccion_p2"/>
+                <p:ajax event="tabClose"  partialSubmit="true" process="seccion_p,seccion_p2"/>-->
 
             </p:accordionPanel>
         </h:form>   
