@@ -106,19 +106,22 @@
                             </p:tab>
                             <p:tab id="seccion_p2" title="Diagnóstico">
                                 <h:panelGrid columns="3" cellpadding="10">
-                                    <h:outputLabel> q|</h:outputLabel>
-                                    <p:inputText id="p_dias" value="#{paciente.dias}"  />
+                                    <h:outputLabel>Sintomas:</h:outputLabel>
+                                    <p:inputTextarea id="p_sintomas" value="#{paciente.nombre}"  />
                                     <h:outputLabel/>
-                                    <h:outputLabel>Edad</h:outputLabel>
-                                    <p:inputText id="p_edad" value="#{paciente.edad}"  />
+                                    <h:outputLabel>Signos:</h:outputLabel>
+                                    <p:inputText id="p_signos" value="#{paciente.nombre}"  />
                                     <h:outputLabel/>                                                  
-
-                                    <h:outputLabel>Nombre:</h:outputLabel>
-                                    <p:inputText id="p_nombre" value="#{paciente.nombre}"  />
+                                    <h:outputLabel>Declaración:</h:outputLabel>
+                                    <p:inputTextarea id="p_declaracion" value="#{paciente.nombre}"  />
                                     <h:outputLabel/>
-                                    <h:outputLabel>Apellidos</h:outputLabel>
-                                    <p:inputText id="p_apellidos" value="#{paciente.apellidos}"  />
+                                    <h:outputLabel>Prescripción:</h:outputLabel>
+                                    <p:inputTextarea id="p_prescripcion" value="#{paciente.nombre}"  />
                                     <h:outputLabel/>
+                                     <h:outputLabel>Recomendaciones:</h:outputLabel>
+                                    <p:inputTextarea id="p_recomendaciones" value="#{paciente.nombre}"  />
+                                    <h:outputLabel/>
+                                   
 
 
 
