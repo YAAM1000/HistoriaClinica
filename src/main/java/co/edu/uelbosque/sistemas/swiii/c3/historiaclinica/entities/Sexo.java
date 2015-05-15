@@ -12,7 +12,8 @@ package co.edu.uelbosque.sistemas.swiii.c3.historiaclinica.entities;
 public enum Sexo {
     
     MASCULINO("MASCULINO"),
-    FEMENINO("FEMENIO");
+    FEMENINO("FEMENIO"),
+    DESCONOCIDO("DESCONOCIDO");
     
     String fenotipo;
     

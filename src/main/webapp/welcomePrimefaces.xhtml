@@ -9,7 +9,7 @@
         <h:head>
             <f:facet name="first">
                 <meta content='text/html; charset=UTF-8' http-equiv="Content-Type"/>
-                <title>PrimeFaces</title>
+                <title>Historia Clinica</title>
             </f:facet>
         </h:head>
 
@@ -19,7 +19,9 @@
             <p:layout fullPage="true">
 
                 <p:layoutUnit position="north" size="100" resizable="true" closable="true" collapsible="true">
-                    Hurgencias medicas
+                   
+                     <img src="http://www.clinicaelbosque.com.co/sites/default/themes/ecobusiness/images/logotipo.png"></img>
+                    
                 </p:layoutUnit>
 
                 <p:layoutUnit position="south" size="100" closable="true" collapsible="true">
@@ -51,7 +53,25 @@
                          <!-- Profe esta tabla  la hice solo para consultar momentaneamente  a la base de datos-->
                        
                         <h:panelGrid columns="3" cellpadding="10">
-                                                  
+                            <p:outputLabel for="p_nacimiento" value="Fecha Nacimiento:" />
+
+                            <p:calendar id="p_nacimiento"  immediate="true"  value="#{paciente.fechaNacimiento}" pattern="dd/MM/yyyy" mask="true" navigator="true">
+                                <p:ajax event="dateSelect" process="@this"
+                                        listener="#{vistaPaciente.actualizarFechaNacimiento}" update="@(#f_paciente)" />
+                               
+                        </p:calendar>
+                        <h:outputLabel>dd/MM/AAAA</h:outputLabel>   
+                        <h:outputLabel>Meses</h:outputLabel>
+                        <p:inputText id="p_meses" value="#{paciente.meses}"  >
+                        </p:inputText>
+                        <h:outputLabel/>
+
+                        <h:outputLabel>Días de Nacido</h:outputLabel>
+                        <p:inputText id="p_dias" value="#{paciente.dias}"  />
+                        <h:outputLabel/>
+                        <h:outputLabel>Edad</h:outputLabel>
+                        <p:inputText id="p_edad" value="#{paciente.edad}"  />
+                        <h:outputLabel/>                                                  
                                    
                             <h:outputLabel>Nombre:</h:outputLabel>
                             <p:inputText id="p_nombre" value="#{paciente.nombre}"  />
@@ -72,25 +92,14 @@
                             <h:outputLabel/>           
                                                          
 
-                            <p:outputLabel for="p_nacimiento" value="Fecha Nacimiento:" />
-
-                            <p:calendar id="p_nacimiento"  immediate="true"  value="#{paciente.fechaNacimiento}" pattern="dd/MM/yyyy" mask="true" navigator="true">
-                                <p:ajax event="dateSelect" process="@this"
-                                        listener="#{vistaPaciente.actualizarFechaNacimiento}" update="@(#f_paciente)" />
-                               
-                        </p:calendar>
-                        <h:outputLabel>dd/MM/AAAA</h:outputLabel>   
-                        <h:outputLabel>Meses</h:outputLabel>
-                        <p:inputText id="p_meses" value="#{paciente.meses}"  >
-                        </p:inputText>
+                            
+                        <h:outputLabel>Peso</h:outputLabel>
+                        <p:inputText id="p_peso" value="#{paciente.peso}"  />
                         <h:outputLabel/>
-
-                        <h:outputLabel>Días de Nacido</h:outputLabel>
-                        <p:inputText id="p_dias" value="#{paciente.dias}"  />
+                        <h:outputLabel>Altura</h:outputLabel>
+                        <p:inputText id="p_altura" value="#{paciente.altura}"  />
                         <h:outputLabel/>
-                        <h:outputLabel>Edad</h:outputLabel>
-                        <p:inputText id="p_edad" value="#{paciente.edad}"  />
-                                             
+                                            
                      
                         <p:commandButton  id="p_guardar"  actionListener="#{vistaPaciente.cambioTab}" onclick="window.location.reload()"  value="Guardar"  />
                                              

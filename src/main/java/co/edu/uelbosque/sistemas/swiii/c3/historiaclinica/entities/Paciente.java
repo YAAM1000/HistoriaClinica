@@ -48,6 +48,33 @@ public class Paciente implements Serializable {
     Integer meses;
     Integer dias;
     Integer edad;
+    Integer peso;
+    Integer altura;
+    Integer alergias;
+    
+    public Integer getAlergias() {
+        return alergias;
+    }
+
+    public void setAlergias(Integer alergias) {
+        this.alergias = alergias;
+    }
+
+    public Integer getPeso() {
+        return peso;
+    }
+
+    public void setPeso(Integer peso) {
+        this.peso = peso;
+    }
+
+    public Integer getAltura() {
+        return altura;
+    }
+
+    public void setAltura(Integer altura) {
+        this.altura = altura;
+    }
 
     private transient Calendar nacimiento;
 
@@ -56,6 +83,8 @@ public class Paciente implements Serializable {
         this.meses = 0;
         this.dias = 0;
         this.edad = 0;
+        
+        
     }
 
     public Integer getMeses() {
