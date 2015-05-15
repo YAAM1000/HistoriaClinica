@@ -19,15 +19,15 @@
             <p:layout fullPage="true">
 
                 <p:layoutUnit position="north" size="100" resizable="true" closable="true" collapsible="true">
-                   
-                     <img src="http://www.clinicaelbosque.com.co/sites/default/themes/ecobusiness/images/logotipo.png"></img>
-                    
+
+                    <img src="http://www.clinicaelbosque.com.co/sites/default/themes/ecobusiness/images/logotipo.png"></img>
+
                 </p:layoutUnit>
 
                 <p:layoutUnit position="south" size="100" closable="true" collapsible="true">
                     SoftUnbosque
-                    
-                    
+
+
                 </p:layoutUnit>
 
                 <p:layoutUnit position="west" size="175" header="Left" collapsible="true">
@@ -44,103 +44,97 @@
                 </p:layoutUnit>
 
                 <p:layoutUnit position="center">
-                    
-                <h:form id="f_paciente">
 
-                <p:accordionPanel id="socio_demo"  >
+                    <h:form id="f_paciente">
 
-                    <p:tab id="seccion_p" title="Paciente">
-                         <!-- Profe esta tabla  la hice solo para consultar momentaneamente  a la base de datos-->
-                       
-                        <h:panelGrid columns="3" cellpadding="10">
-                            <p:outputLabel for="p_nacimiento" value="Fecha Nacimiento:" />
+                        <p:accordionPanel id="socio_demo"  >
 
-                            <p:calendar id="p_nacimiento"  immediate="true"  value="#{paciente.fechaNacimiento}" pattern="dd/MM/yyyy" mask="true" navigator="true">
-                                <p:ajax event="dateSelect" process="@this"
-                                        listener="#{vistaPaciente.actualizarFechaNacimiento}" update="@(#f_paciente)" />
-                               
-                        </p:calendar>
-                        <h:outputLabel>dd/MM/AAAA</h:outputLabel>   
-                        <h:outputLabel>Meses</h:outputLabel>
-                        <p:inputText id="p_meses" value="#{paciente.meses}"  >
-                        </p:inputText>
-                        <h:outputLabel/>
+                            <p:tab id="seccion_p" title="Paciente">
+                                <!-- Profe esta tabla  la hice solo para consultar momentaneamente  a la base de datos-->
 
-                        <h:outputLabel>Días de Nacido</h:outputLabel>
-                        <p:inputText id="p_dias" value="#{paciente.dias}"  />
-                        <h:outputLabel/>
-                        <h:outputLabel>Edad</h:outputLabel>
-                        <p:inputText id="p_edad" value="#{paciente.edad}"  />
-                        <h:outputLabel/>                                                  
-                                   
-                            <h:outputLabel>Nombre:</h:outputLabel>
-                            <p:inputText id="p_nombre" value="#{paciente.nombre}"  />
-                            <h:outputLabel/>
-                            <h:outputLabel>Apellidos</h:outputLabel>
-                            <p:inputText id="p_apellidos" value="#{paciente.apellidos}"  />
-                            <h:outputLabel/>
+                                <h:panelGrid columns="3" cellpadding="10">
+                                    <p:outputLabel for="p_nacimiento" value="Fecha Nacimiento:" />
 
-                            <h:outputLabel>Sexo</h:outputLabel>
-                            <h:selectOneMenu id="p_sexo" value="#{paciente.fenotipoSexual}" >
-                                <f:selectItems value="#{fenotipoSexual.sexos}" />
-                            </h:selectOneMenu>
-                            <h:outputLabel/>
-                             <h:outputLabel>Raza</h:outputLabel>
-                             <h:selectOneMenu id="p_raza" value="#{paciente.caracteristicaFenotipica}" >
-                                 <f:selectItems value="#{caracteristicaFenotipica.razas}" />
-                            </h:selectOneMenu>
-                            <h:outputLabel/>           
-                                                         
+                                    <p:calendar id="p_nacimiento"  immediate="true"  value="#{paciente.fechaNacimiento}" pattern="dd/MM/yyyy" mask="true" navigator="true">
+                                        <p:ajax event="dateSelect" process="@this"
+                                                listener="#{vistaPaciente.actualizarFechaNacimiento}" update="@(#f_paciente)" />
 
-                            
-                        <h:outputLabel>Peso</h:outputLabel>
-                        <p:inputText id="p_peso" value="#{paciente.peso}"  />
-                        <h:outputLabel/>
-                        <h:outputLabel>Altura</h:outputLabel>
-                        <p:inputText id="p_altura" value="#{paciente.altura}"  />
-                        <h:outputLabel/>
-                                            
-                     
-                        <p:commandButton  id="p_guardar"  actionListener="#{vistaPaciente.cambioTab}" onclick="window.location.reload()"  value="Guardar"  />
-                                             
-                    </h:panelGrid>
-                </p:tab>
-                <p:tab id="seccion_p2" title="Diagnóstico">
-                    <h:panelGrid columns="3" cellpadding="10">
-                          <p:dataTable var="paciente" value="#{vistaPaciente.paciente}">  
-                                <p:column headerText="Nombre">  
-                                    <h:outputText value="#{paciente.nombre}" />  
-                                </p:column>  
-                                <p:column headerText="Apellidos">  
-                                    <h:outputText value="#{paciente.apellidos}" />  
+                                    </p:calendar>
+                                    <h:outputLabel>dd/MM/AAAA</h:outputLabel>   
+                                    <h:outputLabel>Meses</h:outputLabel>
+                                    <p:inputText id="p_meses" value="#{paciente.meses}"  >
+                                    </p:inputText>
+                                    <h:outputLabel/>
 
-                                </p:column> 
-                                <p:column headerText="Sexo">  
-                                    <h:outputText value="#{paciente.fenotipoSexual}" />
-                                </p:column> 
-                                <p:column headerText="Raza">  
-                                    <h:outputText value="#{paciente.caracteristicaFenotipica}" />
-                                </p:column> 
-                                <p:column headerText="edad">  
-                                    <h:outputText value="#{paciente.edad}" />  
-                                </p:column> 
-                             
-                         </p:dataTable>
+                                    <h:outputLabel>Días de Nacido</h:outputLabel>
+                                    <p:inputText id="p_dias" value="#{paciente.dias}"  />
+                                    <h:outputLabel/>
+                                    <h:outputLabel>Edad</h:outputLabel>
+                                    <p:inputText id="p_edad" value="#{paciente.edad}"  />
+                                    <h:outputLabel/>                                                  
+
+                                    <h:outputLabel>Nombre:</h:outputLabel>
+                                    <p:inputText id="p_nombre" value="#{paciente.nombre}"  />
+                                    <h:outputLabel/>
+                                    <h:outputLabel>Apellidos</h:outputLabel>
+                                    <p:inputText id="p_apellidos" value="#{paciente.apellidos}"  />
+                                    <h:outputLabel/>
+
+                                    <h:outputLabel>Sexo</h:outputLabel>
+                                    <h:selectOneMenu id="p_sexo" value="#{paciente.fenotipoSexual}" >
+                                        <f:selectItems value="#{fenotipoSexual.sexos}" />
+                                    </h:selectOneMenu>
+                                    <h:outputLabel/>
+                                    <h:outputLabel>Raza</h:outputLabel>
+                                    <h:selectOneMenu id="p_raza" value="#{paciente.caracteristicaFenotipica}" >
+                                        <f:selectItems value="#{caracteristicaFenotipica.razas}" />
+                                    </h:selectOneMenu>
+                                    <h:outputLabel/>           
+                                    <h:outputLabel>Peso</h:outputLabel>
+                                    <p:inputText id="p_peso" value="#{paciente.peso}"  />
+                                    <h:outputLabel/>
+                                    <h:outputLabel>Altura</h:outputLabel>
+                                    <p:inputText id="p_altura" value="#{paciente.altura}"  />
+                                    <h:outputLabel/>
+                                    <h:outputLabel>Alergias Farmacologicas</h:outputLabel>
+                                    <h:selectOneMenu id="p_alergias" value="#{paciente.alergias}" >
+                                        <f:selectItems value="#{caracteristicaAlergica.alergias}" />
+                                    </h:selectOneMenu>
+                                    <h:outputLabel/>
+                                    <p:commandButton  id="p_guardar"  actionListener="#{vistaPaciente.cambioTab}" onclick="window.location.reload()"  value="Guardar"  />
+                                </h:panelGrid>
+                            </p:tab>
+                            <p:tab id="seccion_p2" title="Diagnóstico">
+                                <h:panelGrid columns="3" cellpadding="10">
+                                    <h:outputLabel> q|</h:outputLabel>
+                                    <p:inputText id="p_dias" value="#{paciente.dias}"  />
+                                    <h:outputLabel/>
+                                    <h:outputLabel>Edad</h:outputLabel>
+                                    <p:inputText id="p_edad" value="#{paciente.edad}"  />
+                                    <h:outputLabel/>                                                  
+
+                                    <h:outputLabel>Nombre:</h:outputLabel>
+                                    <p:inputText id="p_nombre" value="#{paciente.nombre}"  />
+                                    <h:outputLabel/>
+                                    <h:outputLabel>Apellidos</h:outputLabel>
+                                    <p:inputText id="p_apellidos" value="#{paciente.apellidos}"  />
+                                    <h:outputLabel/>
 
 
-                    </h:panelGrid>
-                </p:tab>
-               
-                    
 
-                <p:ajax event="tabChange" partialSubmit="true" listener="#{vistaPaciente.cambioTab}"  />
-                <p:ajax event="tabClose" listener="#{vistaPaciente.cerroTab}"  />
-            
-<!--                <p:ajax event="tabChange" partialSubmit="true" process="seccion_p,seccion_p2"/>
-                <p:ajax event="tabClose"  partialSubmit="true" process="seccion_p,seccion_p2"/>-->
+                                </h:panelGrid>
+                            </p:tab>
 
-            </p:accordionPanel>
-        </h:form>   
+
+
+                            <p:ajax event="tabChange" partialSubmit="true" listener="#{vistaPaciente.cambioTab}"  />
+                            <p:ajax event="tabClose" listener="#{vistaPaciente.cerroTab}"  />
+
+                            <!--                <p:ajax event="tabChange" partialSubmit="true" process="seccion_p,seccion_p2"/>
+                                            <p:ajax event="tabClose"  partialSubmit="true" process="seccion_p,seccion_p2"/>-->
+
+                        </p:accordionPanel>
+                    </h:form>   
                 </p:layoutUnit>
 
             </p:layout>
